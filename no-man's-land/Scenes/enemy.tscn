@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://brfbm10vgyfvb"]
 
 [ext_resource type="Script" uid="uid://wnywd8qv4ita" path="res://Scripts/enemy.gd" id="1_hghv2"]
-[ext_resource type="PackedScene" uid="uid://btgjdgom1kl1c" path="res://Scenes/bullet.tscn" id="2_1f0kj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ne65n"]
 size = Vector2(51, 44)
@@ -9,12 +8,9 @@ size = Vector2(51, 44)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hghv2"]
 size = Vector2(54, 46)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2146601599 node_paths=PackedStringArray("pivot", "bullet_spawn", "bullet_timer") groups=["enemy"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2146601599 node_paths=PackedStringArray("pivot") groups=["enemy"]]
 script = ExtResource("1_hghv2")
 pivot = NodePath("Node2D")
-bullet_spawn = NodePath("Node2D/Marker2D")
-bullet_scene = ExtResource("2_1f0kj")
-bullet_timer = NodePath("Timer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1810568997]
 shape = SubResource("RectangleShape2D_ne65n")
@@ -37,8 +33,5 @@ shape = SubResource("RectangleShape2D_hghv2")
 
 [node name="Timer" type="Timer" parent="." unique_id=1781380807]
 one_shot = true
-
-[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1815959931]
-target_position = Vector2(-87, 0)
 
 [connection signal="body_entered" from="Area2D" to="." method="_damage_player"]
