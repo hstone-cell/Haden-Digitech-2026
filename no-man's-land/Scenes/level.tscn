@@ -7,10 +7,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xgho"]
 size = Vector2(4203, 88)
 
-[node name="Node2D" type="Node2D" unique_id=1356729191 node_paths=PackedStringArray("spawn_point")]
+[node name="Node2D" type="Node2D" unique_id=1356729191]
 script = ExtResource("1_6phgx")
-spawn_point = NodePath("Marker2D")
-enemy_scene = ExtResource("1_k5f4k")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1392472844]
 
@@ -30,12 +28,4 @@ position = Vector2(558, 513)
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=688703981]
 
 [node name="CharacterBody2D2" parent="." unique_id=2146601599 instance=ExtResource("1_k5f4k")]
-position = Vector2(881, 531)
-
-[node name="Timer" type="Timer" parent="." unique_id=818320470]
-wait_time = 5.0
-autostart = true
-
-[node name="Marker2D" type="Marker2D" parent="." unique_id=265097407]
-
-[connection signal="timeout" from="Timer" to="." method="_spawn_enemy"]
+position = Vector2(1042, 510)

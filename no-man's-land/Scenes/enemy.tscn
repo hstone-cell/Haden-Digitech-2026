@@ -8,9 +8,8 @@ size = Vector2(51, 44)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hghv2"]
 size = Vector2(54, 46)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2146601599 node_paths=PackedStringArray("pivot") groups=["enemy"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2146601599 groups=["enemy"]]
 script = ExtResource("1_hghv2")
-pivot = NodePath("Node2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1810568997]
 shape = SubResource("RectangleShape2D_ne65n")
