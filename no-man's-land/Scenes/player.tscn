@@ -1,12 +1,19 @@
 [gd_scene format=3 uid="uid://dfxn4lets8vwc"]
 
 [ext_resource type="Script" uid="uid://cs2ly6q8nylls" path="res://Scripts/player.gd" id="1_v0iea"]
+[ext_resource type="PackedScene" uid="uid://btgjdgom1kl1c" path="res://Scenes/bullet.tscn" id="2_cvnsp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
 size = Vector2(72, 84)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=609576188]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v0iea"]
+size = Vector2(74, 86)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=609576188 node_paths=PackedStringArray("bullet_spawn", "bullet_timer") groups=["player"]]
 script = ExtResource("1_v0iea")
+bullet_spawn = NodePath("Node2D/Marker2D")
+bullet_scene = ExtResource("2_cvnsp")
+bullet_timer = NodePath("Timer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1673565749]
 shape = SubResource("RectangleShape2D_cvnsp")
@@ -16,3 +23,19 @@ offset_left = -36.0
 offset_top = -42.0
 offset_right = 36.0
 offset_bottom = 42.0
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1874329734]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=996059391]
+shape = SubResource("RectangleShape2D_v0iea")
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1398859633]
+
+[node name="Marker2D" type="Marker2D" parent="Node2D" unique_id=200894307]
+
+[node name="Timer" type="Timer" parent="." unique_id=594091295]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_damager_entered"]

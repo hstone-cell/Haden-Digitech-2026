@@ -1,25 +1,41 @@
 [gd_scene format=3 uid="uid://ducughbd48sif"]
 
+[ext_resource type="Script" uid="uid://bqw3vyge4d5tj" path="res://Scripts/level.gd" id="1_6phgx"]
+[ext_resource type="PackedScene" uid="uid://brfbm10vgyfvb" path="res://Scenes/enemy.tscn" id="1_k5f4k"]
 [ext_resource type="PackedScene" uid="uid://dfxn4lets8vwc" path="res://Scenes/player.tscn" id="1_tumq0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xgho"]
-size = Vector2(1152, 88)
+size = Vector2(4203, 88)
 
-[node name="Node2D" type="Node2D" unique_id=1356729191]
+[node name="Node2D" type="Node2D" unique_id=1356729191 node_paths=PackedStringArray("spawn_point")]
+script = ExtResource("1_6phgx")
+spawn_point = NodePath("Marker2D")
+enemy_scene = ExtResource("1_k5f4k")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1392472844]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1103173636]
-position = Vector2(576, 605)
+position = Vector2(522.5, 605)
 shape = SubResource("RectangleShape2D_5xgho")
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D" unique_id=1827984137]
-offset_left = -576.0
+offset_left = -2101.5
 offset_top = -44.0
-offset_right = 577.0
+offset_right = 2101.5
 offset_bottom = 44.0
 
 [node name="CharacterBody2D" parent="." unique_id=609576188 instance=ExtResource("1_tumq0")]
-position = Vector2(524, 480)
+position = Vector2(558, 513)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=688703981]
+
+[node name="CharacterBody2D2" parent="." unique_id=2146601599 instance=ExtResource("1_k5f4k")]
+position = Vector2(881, 531)
+
+[node name="Timer" type="Timer" parent="." unique_id=818320470]
+wait_time = 5.0
+autostart = true
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=265097407]
+
+[connection signal="timeout" from="Timer" to="." method="_spawn_enemy"]
