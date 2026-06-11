@@ -9,11 +9,12 @@ size = Vector2(51, 44)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hghv2"]
 size = Vector2(54, 46)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2146601599 node_paths=PackedStringArray("bullet_spawn", "bullet_timer") groups=["enemy"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2146601599 node_paths=PackedStringArray("bullet_spawn", "bullet_timer", "visuals") groups=["enemy"]]
 script = ExtResource("1_hghv2")
 bullet_scene = ExtResource("2_1f0kj")
-bullet_spawn = NodePath("Marker2D")
+bullet_spawn = NodePath("Node2D/Marker2D")
 bullet_timer = NodePath("Timer")
+visuals = NodePath("Node2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1810568997]
 shape = SubResource("RectangleShape2D_ne65n")
@@ -30,10 +31,19 @@ color = Color(0.5568628, 0.0627451, 0.09019608, 1)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=121400332]
 shape = SubResource("RectangleShape2D_hghv2")
 
-[node name="Marker2D" type="Marker2D" parent="." unique_id=466063547]
+[node name="Node2D" type="Node2D" parent="." unique_id=278606616]
+
+[node name="Marker2D" type="Marker2D" parent="Node2D" unique_id=466063547]
 position = Vector2(55, 0)
+
+[node name="ColorRect" type="ColorRect" parent="Node2D/Marker2D" unique_id=920466957]
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 7.0
+offset_bottom = 8.0
 
 [node name="Timer" type="Timer" parent="." unique_id=759592748]
 one_shot = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_damage_player"]
+[connection signal="timeout" from="Timer" to="." method="_shoot"]

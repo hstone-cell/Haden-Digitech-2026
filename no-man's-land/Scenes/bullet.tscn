@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://08874rs0m1g7" path="res://Scripts/bullet.gd" id="1_xjght"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mw4s"]
-size = Vector2(67.5, 4)
+size = Vector2(20, 4)
 
 [node name="Area2D" type="Area2D" unique_id=1444907748]
 script = ExtResource("1_xjght")
@@ -12,8 +12,8 @@ script = ExtResource("1_xjght")
 shape = SubResource("RectangleShape2D_4mw4s")
 
 [node name="ColorRect" type="ColorRect" parent="CollisionShape2D" unique_id=1282153036]
-offset_left = -34.0
+offset_left = -10.0
 offset_top = -2.0
-offset_right = 34.0
+offset_right = 10.0
 offset_bottom = 2.0
 color = Color(1, 0.46666667, 0.09803922, 1)
