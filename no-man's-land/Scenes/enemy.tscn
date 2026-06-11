@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://brfbm10vgyfvb"]
 
 [ext_resource type="Script" uid="uid://wnywd8qv4ita" path="res://Scripts/enemy.gd" id="1_hghv2"]
+[ext_resource type="PackedScene" uid="uid://btgjdgom1kl1c" path="res://Scenes/bullet.tscn" id="2_1f0kj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ne65n"]
 size = Vector2(51, 44)
@@ -8,8 +9,11 @@ size = Vector2(51, 44)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hghv2"]
 size = Vector2(54, 46)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2146601599 groups=["enemy"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2146601599 node_paths=PackedStringArray("bullet_spawn", "bullet_timer") groups=["enemy"]]
 script = ExtResource("1_hghv2")
+bullet_scene = ExtResource("2_1f0kj")
+bullet_spawn = NodePath("Marker2D")
+bullet_timer = NodePath("Timer")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1810568997]
 shape = SubResource("RectangleShape2D_ne65n")
@@ -21,16 +25,15 @@ offset_right = 26.0
 offset_bottom = 22.0
 color = Color(0.5568628, 0.0627451, 0.09019608, 1)
 
-[node name="Node2D" type="Node2D" parent="." unique_id=1579612434]
-
-[node name="Marker2D" type="Marker2D" parent="Node2D" unique_id=1424499545]
-
 [node name="Area2D" type="Area2D" parent="." unique_id=1616990913]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=121400332]
 shape = SubResource("RectangleShape2D_hghv2")
 
-[node name="Timer" type="Timer" parent="." unique_id=1781380807]
+[node name="Marker2D" type="Marker2D" parent="." unique_id=466063547]
+position = Vector2(55, 0)
+
+[node name="Timer" type="Timer" parent="." unique_id=759592748]
 one_shot = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_damage_player"]

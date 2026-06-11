@@ -14,6 +14,10 @@ config/name="No-Man's-Land"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+Enemy="*uid://wnywd8qv4ita"
+
 [input]
 
 ui_left={
