@@ -4,7 +4,7 @@ var speed: float = 150
 var JUMP_VELOCITY: = -500
 var gravity: float = 900
 var player: CharacterBody2D
-@export var detection_range: float = 1000.0
+@export var detection_range: float = 800.0
 @export var stop_distance: float = 400.0
 @export var idle_wait_time: float = 1.5
 @export var bullet_scene: PackedScene
@@ -84,3 +84,7 @@ func _shoot() -> void:
 	bullet_timer.start()
 	
 	
+
+
+func _bullet_timer() -> void:
+	can_shoot = true

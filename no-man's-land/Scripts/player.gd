@@ -3,6 +3,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -700.0
 var facing_direction = 1 
+var health: int = 5
 
 
 
@@ -32,6 +33,12 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
+func take_damage() -> void:
+	if health > 1:
+		health -= 1
+	else:
+		get_tree().call_deferred("reload_current_scene")
+		
 
 			
 

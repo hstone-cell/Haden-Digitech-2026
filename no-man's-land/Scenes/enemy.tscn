@@ -46,4 +46,4 @@ offset_bottom = 8.0
 one_shot = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_damage_player"]
-[connection signal="timeout" from="Timer" to="." method="_shoot"]
+[connection signal="timeout" from="Timer" to="." method="_bullet_timer"]
