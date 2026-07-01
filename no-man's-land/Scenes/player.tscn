@@ -80,7 +80,10 @@ animations = [{
 "speed": 15.0
 }]
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=609576188 node_paths=PackedStringArray("bullet_spawn", "bullet_timer", "Visuals", "legs", "torso") groups=["player"]]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dp3o"]
+size = Vector2(40, 63)
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=609576188 node_paths=PackedStringArray("bullet_spawn", "bullet_timer", "Visuals", "legs", "torso", "stand", "crouch", "stand_visuals", "crouch_visuals") groups=["player"]]
 script = ExtResource("1_v0iea")
 bullet_scene = ExtResource("2_cvnsp")
 bullet_spawn = NodePath("Node2D/Marker2D")
@@ -88,16 +91,19 @@ bullet_timer = NodePath("Timer")
 Visuals = NodePath("Node2D")
 legs = NodePath("Node2D/legs")
 torso = NodePath("Node2D/torso")
+stand = NodePath("CollisionShape2D")
+crouch = NodePath("CollisionShape2D2")
+stand_visuals = NodePath("CollisionShape2D/ColorRect")
+crouch_visuals = NodePath("CollisionShape2D2/ColorRect")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1673565749]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_cvnsp")
 
 [node name="ColorRect" type="ColorRect" parent="CollisionShape2D" unique_id=1791704229]
-visible = false
-offset_left = -36.0
+offset_left = -20.0
 offset_top = -42.0
-offset_right = 36.0
+offset_right = 20.0
 offset_bottom = 42.0
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1398859633]
@@ -122,5 +128,16 @@ wait_time = 0.2
 one_shot = true
 
 [node name="Character" type="Sprite2D" parent="." unique_id=776533819]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=1429672026]
+position = Vector2(1, 10.5)
+shape = SubResource("RectangleShape2D_7dp3o")
+disabled = true
+
+[node name="ColorRect" type="ColorRect" parent="CollisionShape2D2" unique_id=610162959]
+offset_left = -20.0
+offset_top = -31.5
+offset_right = 20.0
+offset_bottom = 31.5
 
 [connection signal="timeout" from="Timer" to="." method="_bullet"]

@@ -17,7 +17,10 @@ const base_fire_rate: float = 0.2
 @export var Visuals: Node2D
 @export var legs: AnimatedSprite2D
 @export var torso: AnimatedSprite2D
-
+@export var stand: CollisionShape2D
+@export var crouch: CollisionShape2D
+@export var stand_visuals: ColorRect
+@export var crouch_visuals: ColorRect
 
 
 
@@ -46,7 +49,21 @@ func _physics_process(delta: float) -> void:
 			legs.play("legs-idle")
 		if torso.animation != "torso-idle":
 			torso.play("torso-idle")
-		
+	
+	if Input.is_action_pressed("ui_crouch"):
+		crouch.disabled = false
+		stand.disabled = true
+		velocity.x = direction * SPEED/2
+		velocity.y = JUMP_VELOCITY * 0
+		stand_visuals.color = 0
+		crouch_visuals.color = 100 
+	else:
+		crouch.disabled = true
+		stand.disabled = false
+		stand_visuals.color = 100
+		crouch_visuals.color = 0
+	
+	
 	if Input.is_action_pressed("ui_shoot") and can_shoot:
 		_shoot()
 		
@@ -99,4 +116,3 @@ func pickup_weapon(_id: String, stats: Dictionary) -> void:
 func _bullet() -> void:
 	can_shoot = true
 	
-		
