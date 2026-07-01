@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://btgjdgom1kl1c" path="res://Scenes/bullet.tscn" id="2_1f0kj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ne65n"]
-size = Vector2(51, 44)
+size = Vector2(51, 82)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hghv2"]
-size = Vector2(54, 46)
+size = Vector2(54, 83)
 
 [node name="CharacterBody2D" type="CharacterBody2D" unique_id=2146601599 node_paths=PackedStringArray("bullet_spawn", "bullet_timer", "visuals") groups=["enemy"]]
 script = ExtResource("1_hghv2")
@@ -20,10 +20,10 @@ visuals = NodePath("Node2D")
 shape = SubResource("RectangleShape2D_ne65n")
 
 [node name="ColorRect" type="ColorRect" parent="CollisionShape2D" unique_id=546352589]
-offset_left = -26.0
-offset_top = -22.0
-offset_right = 26.0
-offset_bottom = 22.0
+offset_left = -27.0
+offset_top = -42.0
+offset_right = 27.0
+offset_bottom = 42.0
 color = Color(0.5568628, 0.0627451, 0.09019608, 1)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1616990913]
@@ -43,6 +43,7 @@ offset_right = 7.0
 offset_bottom = 8.0
 
 [node name="Timer" type="Timer" parent="." unique_id=759592748]
+wait_time = 0.5
 one_shot = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_damage_player"]

@@ -1,17 +1,100 @@
 [gd_scene format=3 uid="uid://dfxn4lets8vwc"]
 
 [ext_resource type="Script" uid="uid://cs2ly6q8nylls" path="res://Scripts/player.gd" id="1_v0iea"]
+[ext_resource type="PackedScene" uid="uid://btgjdgom1kl1c" path="res://Scenes/bullet.tscn" id="2_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://dw23f2j3ypkc" path="res://Assets/legs-idle/legs-idle.png" id="3_vgqql"]
+[ext_resource type="Texture2D" uid="uid://chadt8g3ddqcf" path="res://Assets/torso-idle/torso-idle.png" id="4_fkybt"]
+[ext_resource type="Texture2D" uid="uid://cncb5f02x1a1n" path="res://Assets/legs-walking/legs-walking0001.png" id="5_7dp3o"]
+[ext_resource type="Texture2D" uid="uid://cfi03mek3404i" path="res://Assets/legs-walking/legs-walking (2).png" id="5_h4iuc"]
+[ext_resource type="Texture2D" uid="uid://ciw1y7botc58h" path="res://Assets/legs-walking/legs-walking0003.png" id="7_fd4e3"]
+[ext_resource type="Texture2D" uid="uid://cbo046gdfd48f" path="res://Assets/legs-walking/legs-walking0004.png" id="8_qqcod"]
+[ext_resource type="Texture2D" uid="uid://ctiwtdukxhyyk" path="res://Assets/legs-walking/legs-walking0005.png" id="9_igrcy"]
+[ext_resource type="Texture2D" uid="uid://boaag8slfbh6v" path="res://Assets/torso-walking/torso-walking0001.png" id="10_fs7ks"]
+[ext_resource type="Texture2D" uid="uid://vcckp5wo3vgw" path="res://Assets/torso-walking/torso-walking0002.png" id="11_l6n3p"]
+[ext_resource type="Texture2D" uid="uid://825whwwlmkav" path="res://Assets/torso-walking/torso-walking0003.png" id="12_olqyp"]
+[ext_resource type="Texture2D" uid="uid://dfvpsmhciti53" path="res://Assets/torso-walking/torso-walking0004.png" id="13_wpjfl"]
+[ext_resource type="Texture2D" uid="uid://84f77637xs68" path="res://Assets/torso-walking/torso-walking0005.png" id="14_bi64h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
-size = Vector2(72, 84)
+size = Vector2(40, 84)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=609576188 groups=["player"]]
+[sub_resource type="SpriteFrames" id="SpriteFrames_2ijsl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_vgqql")
+}],
+"loop": true,
+"name": &"legs-idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_7dp3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_h4iuc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_fd4e3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qqcod")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_igrcy")
+}],
+"loop": true,
+"name": &"legs-walking",
+"speed": 15.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1odr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fkybt")
+}],
+"loop": true,
+"name": &"torso-idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_fs7ks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_l6n3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_olqyp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_wpjfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_bi64h")
+}],
+"loop": true,
+"name": &"torso-walking",
+"speed": 15.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=609576188 node_paths=PackedStringArray("bullet_spawn", "bullet_timer", "Visuals", "legs", "torso") groups=["player"]]
 script = ExtResource("1_v0iea")
+bullet_scene = ExtResource("2_cvnsp")
+bullet_spawn = NodePath("Node2D/Marker2D")
+bullet_timer = NodePath("Timer")
+Visuals = NodePath("Node2D")
+legs = NodePath("Node2D/legs")
+torso = NodePath("Node2D/torso")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1673565749]
+position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_cvnsp")
 
 [node name="ColorRect" type="ColorRect" parent="CollisionShape2D" unique_id=1791704229]
+visible = false
 offset_left = -36.0
 offset_top = -42.0
 offset_right = 36.0
@@ -20,3 +103,24 @@ offset_bottom = 42.0
 [node name="Node2D" type="Node2D" parent="." unique_id=1398859633]
 
 [node name="Marker2D" type="Marker2D" parent="Node2D" unique_id=200894307]
+position = Vector2(57, 0)
+
+[node name="legs" type="AnimatedSprite2D" parent="Node2D" unique_id=1778046149]
+position = Vector2(6.5000024, -21.499992)
+scale = Vector2(1.7343751, 1.984375)
+sprite_frames = SubResource("SpriteFrames_2ijsl")
+animation = &"legs-walking"
+
+[node name="torso" type="AnimatedSprite2D" parent="Node2D" unique_id=1787478656]
+position = Vector2(6.500002, -20.499998)
+scale = Vector2(1.9218751, 1.921875)
+sprite_frames = SubResource("SpriteFrames_p1odr")
+animation = &"torso-walking"
+
+[node name="Timer" type="Timer" parent="." unique_id=1943015192]
+wait_time = 0.2
+one_shot = true
+
+[node name="Character" type="Sprite2D" parent="." unique_id=776533819]
+
+[connection signal="timeout" from="Timer" to="." method="_bullet"]

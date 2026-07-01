@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+var health: = 5
 var speed: float = 150
 var JUMP_VELOCITY: = -500
 var gravity: float = 900
@@ -79,6 +80,7 @@ func _shoot() -> void:
 	var bullet = bullet_scene.instantiate()
 	bullet.global_position = bullet_spawn.global_position
 	bullet.look_at(player.global_position)
+	bullet.firing_origin = self
 	add_sibling(bullet)
 	can_shoot = false
 	bullet_timer.start()
@@ -88,3 +90,10 @@ func _shoot() -> void:
 
 func _bullet_timer() -> void:
 	can_shoot = true
+	
+	
+func take_damage(damage: int) -> void:
+	if health > damage:
+		health -= damage
+	else:
+		queue_free()

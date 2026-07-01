@@ -3,9 +3,16 @@
 [ext_resource type="Script" uid="uid://bqw3vyge4d5tj" path="res://Scripts/level.gd" id="1_6phgx"]
 [ext_resource type="PackedScene" uid="uid://brfbm10vgyfvb" path="res://Scenes/enemy.tscn" id="1_k5f4k"]
 [ext_resource type="PackedScene" uid="uid://dfxn4lets8vwc" path="res://Scenes/player.tscn" id="1_tumq0"]
+[ext_resource type="PackedScene" uid="uid://cff464mahxhrp" path="res://Scenes/weapon_crate.tscn" id="4_81xng"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xgho"]
 size = Vector2(4203, 88)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6phgx"]
+bg_color = Color(0.64663017, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_81xng"]
+bg_color = Color(0.44313726, 0.78039217, 0.26666668, 1)
 
 [node name="Node2D" type="Node2D" unique_id=1356729191]
 script = ExtResource("1_6phgx")
@@ -22,10 +29,34 @@ offset_top = -44.0
 offset_right = 2101.5
 offset_bottom = 44.0
 
-[node name="CharacterBody2D" parent="." unique_id=609576188 instance=ExtResource("1_tumq0")]
+[node name="CharacterBody2D" parent="." unique_id=609576188 node_paths=PackedStringArray("health_ui") instance=ExtResource("1_tumq0")]
 position = Vector2(558, 513)
+health_ui = NodePath("../CanvasLayer/ProgressBar")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=688703981]
 
 [node name="CharacterBody2D2" parent="." unique_id=2146601599 instance=ExtResource("1_k5f4k")]
-position = Vector2(1042, 510)
+position = Vector2(1668, 514)
+
+[node name="CharacterBody2D3" parent="." unique_id=2012506535 instance=ExtResource("1_k5f4k")]
+position = Vector2(-444, 500)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1058706101]
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer" unique_id=912939547]
+offset_left = 19.0
+offset_top = 26.0
+offset_right = 285.0
+offset_bottom = 74.0
+theme_override_styles/background = SubResource("StyleBoxFlat_6phgx")
+theme_override_styles/fill = SubResource("StyleBoxFlat_81xng")
+max_value = 5.0
+step = 1.0
+value = 5.0
+show_percentage = false
+
+[node name="Area2D" parent="." unique_id=521522661 instance=ExtResource("4_81xng")]
+position = Vector2(787, 509)
+
+[node name="Area2D2" parent="." unique_id=643749035 instance=ExtResource("4_81xng")]
+position = Vector2(341, 507)
