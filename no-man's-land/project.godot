@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="No-Man's-Land"
-run/main_scene="uid://ducughbd48sif"
+run/main_scene="uid://6dnq61oibg3y"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

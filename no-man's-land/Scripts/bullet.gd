@@ -5,9 +5,8 @@ var direction
 var firing_origin: CharacterBody2D
 var damage: int = 1
 
-
+func _ready():
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
 	pass # Replace with function body.
 
 
@@ -15,6 +14,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	position += transform.x * speed * delta
 	global_transform.basis_xform(Vector2.RIGHT)
+
 	
 func _damage_player(body: Node2D) -> void:
 	if body.is_in_group("player") and not body == firing_origin:

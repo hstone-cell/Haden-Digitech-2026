@@ -26,12 +26,10 @@ const base_fire_rate: float = 0.2
 
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		
 
-	# Handle jump.
 	if Input.is_action_just_pressed("ui_up") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		
@@ -50,19 +48,18 @@ func _physics_process(delta: float) -> void:
 		if torso.animation != "torso-idle":
 			torso.play("torso-idle")
 	
-	if Input.is_action_pressed("ui_crouch"):
+	if Input.is_action_pressed("ui_crouch") and is_on_floor():
 		crouch.disabled = false
 		stand.disabled = true
 		velocity.x = direction * SPEED/2
 		velocity.y = JUMP_VELOCITY * 0
 		stand_visuals.color = 0
-		crouch_visuals.color = 100 
+		crouch_visuals.color = 100
 	else:
 		crouch.disabled = true
 		stand.disabled = false
 		stand_visuals.color = 100
 		crouch_visuals.color = 0
-	
 	
 	if Input.is_action_pressed("ui_shoot") and can_shoot:
 		_shoot()
