@@ -5,16 +5,19 @@ const weapons: Dictionary = {
 		"ammo": 16,
 		"damage": 3,
 		"fire_rate": 1.5,
+		"fire_distance": 450,
 	},
 	"rifle": {
 		"ammo": 32,
 		"damage": 1.5,
 		"fire_rate": 0.7,
+		"fire_distance": 500,
 	},
 	"sniper": {
 		"ammo": 3,
 		"damage": 10,
 		"fire_rate": 2.5,
+		"fire_distance": 600,
 	},	
 }
 

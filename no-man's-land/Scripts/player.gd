@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 const SPEED = 300.0
@@ -10,6 +11,8 @@ var current_damage: int = 1
 var has_pickup_weapon: bool = false
 const base_damage: int = 1
 const base_fire_rate: float = 0.2
+var current_firing_distance: int = 550
+const base_firing_distance: int = 550
 @export var health_ui: ProgressBar
 @export var bullet_scene: PackedScene
 @export var bullet_spawn: Marker2D
@@ -92,6 +95,7 @@ func _shoot() -> void:
 	bullet.rotation = 0.0 if facing_direction == 1 else PI
 	bullet.firing_origin = self
 	bullet.damage = current_damage
+	bullet.firing_distance = current_firing_distance
 	add_sibling(bullet)
 	can_shoot = false
 	bullet_timer.start()
@@ -102,12 +106,14 @@ func _shoot() -> void:
 			has_pickup_weapon = false
 			current_damage = base_damage
 			bullet_timer.wait_time = base_fire_rate
+			current_firing_distance = base_firing_distance
 	
 func pickup_weapon(_id: String, stats: Dictionary) -> void:
 	has_pickup_weapon = true
 	current_damage = stats.get("damage", base_damage)
 	current_ammo = stats.get("ammo", 10)
 	bullet_timer.wait_time = stats.get("fire_rate", base_fire_rate)
+	current_firing_distance = stats.get("fire_distance", base_firing_distance)
 	
 	
 func _bullet() -> void:
