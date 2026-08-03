@@ -10,8 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://cbo046gdfd48f" path="res://Assets/legs-walking/legs-walking0004.png" id="8_qqcod"]
 [ext_resource type="Texture2D" uid="uid://ctiwtdukxhyyk" path="res://Assets/legs-walking/legs-walking0005.png" id="9_igrcy"]
 [ext_resource type="Texture2D" uid="uid://boaag8slfbh6v" path="res://Assets/torso-walking/torso-walking0001.png" id="10_fs7ks"]
+[ext_resource type="Texture2D" uid="uid://b08plpg3cfwoq" path="res://Assets/torso-shooting/torso-shooting0001.png" id="10_igrcy"]
+[ext_resource type="Texture2D" uid="uid://dg1l415a3lv88" path="res://Assets/torso-shooting/torso-shooting0002.png" id="11_fs7ks"]
 [ext_resource type="Texture2D" uid="uid://vcckp5wo3vgw" path="res://Assets/torso-walking/torso-walking0002.png" id="11_l6n3p"]
+[ext_resource type="Texture2D" uid="uid://wp3juhxvbi3f" path="res://Assets/torso-shooting/torso-shooting0003.png" id="12_l6n3p"]
 [ext_resource type="Texture2D" uid="uid://825whwwlmkav" path="res://Assets/torso-walking/torso-walking0003.png" id="12_olqyp"]
+[ext_resource type="Texture2D" uid="uid://cpptdl0bkljs6" path="res://Assets/torso-shooting/torso-shooting0004.png" id="13_olqyp"]
 [ext_resource type="Texture2D" uid="uid://dfvpsmhciti53" path="res://Assets/torso-walking/torso-walking0004.png" id="13_wpjfl"]
 [ext_resource type="Texture2D" uid="uid://84f77637xs68" path="res://Assets/torso-walking/torso-walking0005.png" id="14_bi64h"]
 
@@ -58,6 +62,23 @@ animations = [{
 "loop": true,
 "name": &"torso-idle",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_igrcy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_fs7ks")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_l6n3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_olqyp")
+}],
+"loop": false,
+"name": &"torso-shooting",
+"speed": 15.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -121,7 +142,7 @@ animation = &"legs-walking"
 position = Vector2(6.500002, -20.499998)
 scale = Vector2(1.9218751, 1.921875)
 sprite_frames = SubResource("SpriteFrames_p1odr")
-animation = &"torso-walking"
+animation = &"torso-shooting"
 
 [node name="Timer" type="Timer" parent="." unique_id=1943015192]
 wait_time = 0.2

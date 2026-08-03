@@ -48,14 +48,14 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if legs.animation != "legs-idle":
 			legs.play("legs-idle")
-		if torso.animation != "torso-idle":
+		if torso.animation != "torso-idle" and not torso.animation == "torso-shooting":
 			torso.play("torso-idle")
 	
 	if Input.is_action_pressed("ui_crouch") and is_on_floor():
 		crouch.disabled = false
 		stand.disabled = true
-		velocity.x = direction * SPEED/2
-		velocity.y = JUMP_VELOCITY * 0
+		velocity.x = 0
+		velocity.y = 0
 		stand_visuals.color = 0
 		crouch_visuals.color = 100
 	else:
@@ -66,6 +66,9 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("ui_shoot") and can_shoot:
 		_shoot()
+		if torso.animation != "torso-shooting":
+			torso.play("torso-shooting")
+
 		
 	var input_dir = Input.get_axis("ui_left", "ui_right")
 	if input_dir != 0:

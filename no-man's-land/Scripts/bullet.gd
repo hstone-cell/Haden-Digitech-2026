@@ -11,9 +11,10 @@ func _ready():
 	pass
 
 func _process(delta: float) -> void:
-	if firing_origin is Player:
-		if global_position.distance_to(firing_origin.global_position) > firing_distance:
-			queue_free()
+	if is_instance_valid(firing_origin):
+		if firing_origin is Player:
+			if global_position.distance_to(firing_origin.global_position) > firing_distance:
+				queue_free()
 	position += transform.x * speed * delta
 	global_transform.basis_xform(Vector2.RIGHT)
 		

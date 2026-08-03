@@ -6,7 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://cff464mahxhrp" path="res://Scenes/weapon_crate.tscn" id="4_81xng"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5xgho"]
-size = Vector2(4203, 88)
+size = Vector2(10517, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_81xng"]
+size = Vector2(196, 488)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6phgx"]
 bg_color = Color(0.64663017, 0, 0, 1)
@@ -20,14 +23,18 @@ script = ExtResource("1_6phgx")
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1392472844]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1103173636]
-position = Vector2(522.5, 605)
+position = Vector2(3679.5, 605)
 shape = SubResource("RectangleShape2D_5xgho")
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D" unique_id=1827984137]
-offset_left = -2101.5
+offset_left = -5316.5
 offset_top = -44.0
-offset_right = 2101.5
-offset_bottom = 44.0
+offset_right = 5256.5
+offset_bottom = 55.0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=923083163]
+position = Vector2(-141, 336)
+shape = SubResource("RectangleShape2D_81xng")
 
 [node name="CharacterBody2D" parent="." unique_id=609576188 node_paths=PackedStringArray("health_ui") instance=ExtResource("1_tumq0")]
 position = Vector2(558, 513)
@@ -39,7 +46,7 @@ health_ui = NodePath("../CanvasLayer/ProgressBar")
 position = Vector2(1668, 514)
 
 [node name="CharacterBody2D3" parent="." unique_id=2012506535 instance=ExtResource("1_k5f4k")]
-position = Vector2(2032, 506)
+position = Vector2(2959, 506)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1058706101]
 
@@ -60,3 +67,6 @@ position = Vector2(787, 509)
 
 [node name="Area2D2" parent="." unique_id=643749035 instance=ExtResource("4_81xng")]
 position = Vector2(341, 507)
+
+[node name="CharacterBody2D4" parent="." unique_id=1564093435 instance=ExtResource("1_k5f4k")]
+position = Vector2(2817, 502)
