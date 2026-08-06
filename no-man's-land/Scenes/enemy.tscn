@@ -34,13 +34,13 @@ shape = SubResource("RectangleShape2D_hghv2")
 [node name="Node2D" type="Node2D" parent="." unique_id=278606616]
 
 [node name="Marker2D" type="Marker2D" parent="Node2D" unique_id=466063547]
-position = Vector2(55, 0)
+position = Vector2(55, -15)
 
 [node name="ColorRect" type="ColorRect" parent="Node2D/Marker2D" unique_id=920466957]
 offset_left = -7.0
-offset_top = -7.0
+offset_top = -8.0
 offset_right = 7.0
-offset_bottom = 8.0
+offset_bottom = 7.0
 
 [node name="Timer" type="Timer" parent="." unique_id=759592748]
 wait_time = 0.5

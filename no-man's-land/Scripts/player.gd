@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -250.0
+const JUMP_VELOCITY = -350.0
 var facing_direction = 1 
 var health: int = 10
 var can_shoot = true

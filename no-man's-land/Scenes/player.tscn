@@ -130,7 +130,7 @@ offset_bottom = 42.0
 [node name="Node2D" type="Node2D" parent="." unique_id=1398859633]
 
 [node name="Marker2D" type="Marker2D" parent="Node2D" unique_id=200894307]
-position = Vector2(57, 0)
+position = Vector2(59, -11)
 
 [node name="legs" type="AnimatedSprite2D" parent="Node2D" unique_id=1778046149]
 position = Vector2(6.5000024, -21.499992)

@@ -20,3 +20,4 @@ color = Color(1, 0.46666667, 0.09803922, 1)
 
 [connection signal="body_entered" from="." to="." method="_damage_enemy"]
 [connection signal="body_entered" from="." to="." method="_damage_player"]
+[connection signal="body_entered" from="." to="." method="_on_body_collision"]

@@ -10,6 +10,7 @@ var firing_distance: int = 550
 func _ready():
 	pass
 
+
 func _process(delta: float) -> void:
 	if is_instance_valid(firing_origin):
 		if firing_origin is Player:
@@ -17,16 +18,10 @@ func _process(delta: float) -> void:
 				queue_free()
 	position += transform.x * speed * delta
 	global_transform.basis_xform(Vector2.RIGHT)
-		
-func _damage_player(body: Node2D) -> void:
-	if body.is_in_group("player") and not body == firing_origin:
-		body.take_damage(damage)
-		queue_free()
 
 
-
-
-func _damage_enemy(body: Node2D) -> void:
-	if body.is_in_group("enemy") and not body == firing_origin:
-		body.take_damage(damage)
-		queue_free()
+func _on_body_collision(body: Node2D) -> void:
+	if not body == firing_origin:
+		if body.is_in_group("player") or body.is_in_group("enemy"):
+			body.take_damage(damage)
+	queue_free()
