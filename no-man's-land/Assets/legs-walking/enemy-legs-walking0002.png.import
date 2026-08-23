@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://urotxrws788c"
-path="res://.godot/imported/main_menu_design.png-4b0dcc02d7a612f7c614cc91aa3015ff.ctex"
+uid="uid://dac7j6kqypqr5"
+path="res://.godot/imported/enemy-legs-walking0002.png-6ed9c35bd9f0f23a901c51f3625d08ab.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/main_menu_design.png"
-dest_files=["res://.godot/imported/main_menu_design.png-4b0dcc02d7a612f7c614cc91aa3015ff.ctex"]
+source_file="res://Assets/legs-walking/enemy-legs-walking0002.png"
+dest_files=["res://.godot/imported/enemy-legs-walking0002.png-6ed9c35bd9f0f23a901c51f3625d08ab.ctex"]
 
 [params]
 

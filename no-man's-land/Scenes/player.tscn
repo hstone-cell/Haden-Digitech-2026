@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cs2ly6q8nylls" path="res://Scripts/player.gd" id="1_v0iea"]
 [ext_resource type="PackedScene" uid="uid://btgjdgom1kl1c" path="res://Scenes/bullet.tscn" id="2_cvnsp"]
+[ext_resource type="Texture2D" uid="uid://begk2hnbt35uq" path="res://Assets/legs-crouching/legs-crouching.png" id="3_83xs0"]
 [ext_resource type="Texture2D" uid="uid://dw23f2j3ypkc" path="res://Assets/legs-idle/legs-idle.png" id="3_vgqql"]
 [ext_resource type="Texture2D" uid="uid://chadt8g3ddqcf" path="res://Assets/torso-idle/torso-idle.png" id="4_fkybt"]
 [ext_resource type="Texture2D" uid="uid://cncb5f02x1a1n" path="res://Assets/legs-walking/legs-walking0001.png" id="5_7dp3o"]
@@ -9,21 +10,59 @@
 [ext_resource type="Texture2D" uid="uid://ciw1y7botc58h" path="res://Assets/legs-walking/legs-walking0003.png" id="7_fd4e3"]
 [ext_resource type="Texture2D" uid="uid://cbo046gdfd48f" path="res://Assets/legs-walking/legs-walking0004.png" id="8_qqcod"]
 [ext_resource type="Texture2D" uid="uid://ctiwtdukxhyyk" path="res://Assets/legs-walking/legs-walking0005.png" id="9_igrcy"]
-[ext_resource type="Texture2D" uid="uid://boaag8slfbh6v" path="res://Assets/torso-walking/torso-walking0001.png" id="10_fs7ks"]
-[ext_resource type="Texture2D" uid="uid://b08plpg3cfwoq" path="res://Assets/torso-shooting/torso-shooting0001.png" id="10_igrcy"]
-[ext_resource type="Texture2D" uid="uid://dg1l415a3lv88" path="res://Assets/torso-shooting/torso-shooting0002.png" id="11_fs7ks"]
-[ext_resource type="Texture2D" uid="uid://vcckp5wo3vgw" path="res://Assets/torso-walking/torso-walking0002.png" id="11_l6n3p"]
-[ext_resource type="Texture2D" uid="uid://wp3juhxvbi3f" path="res://Assets/torso-shooting/torso-shooting0003.png" id="12_l6n3p"]
-[ext_resource type="Texture2D" uid="uid://825whwwlmkav" path="res://Assets/torso-walking/torso-walking0003.png" id="12_olqyp"]
-[ext_resource type="Texture2D" uid="uid://cpptdl0bkljs6" path="res://Assets/torso-shooting/torso-shooting0004.png" id="13_olqyp"]
-[ext_resource type="Texture2D" uid="uid://dfvpsmhciti53" path="res://Assets/torso-walking/torso-walking0004.png" id="13_wpjfl"]
-[ext_resource type="Texture2D" uid="uid://84f77637xs68" path="res://Assets/torso-walking/torso-walking0005.png" id="14_bi64h"]
+[ext_resource type="Texture2D" uid="uid://byssw4beuyq1g" path="res://Assets/torso-walking/torso-walking0001.png" id="10_fs7ks"]
+[ext_resource type="Texture2D" uid="uid://ct0qshxs11s0t" path="res://Assets/torso-shooting/torso-shooting0001.png" id="10_igrcy"]
+[ext_resource type="Texture2D" uid="uid://dehkklih0b44l" path="res://Assets/torso-shooting/torso-shooting0002.png" id="11_fs7ks"]
+[ext_resource type="Texture2D" uid="uid://g5d07hkb1gcb" path="res://Assets/torso-walking/torso-walking0002.png" id="11_l6n3p"]
+[ext_resource type="Texture2D" uid="uid://bdo32sxp8mn3h" path="res://Assets/torso-walking/torso-rifle-walking0001.png" id="11_nv4vc"]
+[ext_resource type="Texture2D" uid="uid://d1s7toeq0bg7x" path="res://Assets/torso-shooting/torso-rifle-shooting0001.png" id="11_sbwqj"]
+[ext_resource type="Texture2D" uid="uid://boketacv02ecu" path="res://Assets/torso-walking/torso-rifle-walking0002.png" id="12_8gxox"]
+[ext_resource type="Texture2D" uid="uid://bux8uxde3qr6c" path="res://Assets/torso-shooting/torso-shooting0003.png" id="12_l6n3p"]
+[ext_resource type="Texture2D" uid="uid://c8x0j0og3ygid" path="res://Assets/torso-walking/torso-walking0003.png" id="12_olqyp"]
+[ext_resource type="Texture2D" uid="uid://bnsy28woff57i" path="res://Assets/torso-shooting/torso-rifle-shooting0002.png" id="12_xwi16"]
+[ext_resource type="Texture2D" uid="uid://b2dnkpkukuau0" path="res://Assets/torso-walking/torso-rifle-walking0003.png" id="13_11gg7"]
+[ext_resource type="Texture2D" uid="uid://dvlgfqwjahl5y" path="res://Assets/torso-shooting/torso-shooting0004.png" id="13_olqyp"]
+[ext_resource type="Texture2D" uid="uid://dvs0y1t4qh8ue" path="res://Assets/torso-shooting/torso-rifle-shooting0003.png" id="13_sweqm"]
+[ext_resource type="Texture2D" uid="uid://c1hqcu58hesxw" path="res://Assets/torso-walking/torso-walking0004.png" id="13_wpjfl"]
+[ext_resource type="Texture2D" uid="uid://b100mqvs8i30s" path="res://Assets/torso-walking/torso-walking0005.png" id="14_bi64h"]
+[ext_resource type="Texture2D" uid="uid://y2h3ydx0ojiw" path="res://Assets/torso-shooting/torso-rifle-shooting0004.png" id="14_ph33w"]
+[ext_resource type="Texture2D" uid="uid://61drm0yhu8xp" path="res://Assets/torso-walking/torso-rifle-walking0004.png" id="14_qpa8y"]
+[ext_resource type="Texture2D" uid="uid://cf4q5gk06xcgs" path="res://Assets/torso-shooting/torso-shotgun-shooting0001.png" id="14_wpjfl"]
+[ext_resource type="Texture2D" uid="uid://bvdd7r7rnxohp" path="res://Assets/torso-idle/torso-shotgun-idle.png" id="14_y6uwr"]
+[ext_resource type="Texture2D" uid="uid://dtc5b52jf78su" path="res://Assets/torso-shooting/torso-shotgun-shooting0002.png" id="15_bi64h"]
+[ext_resource type="Texture2D" uid="uid://wbu6tqpp6ova" path="res://Assets/torso-walking/torso-rifle-walking0005.png" id="15_sbwqj"]
+[ext_resource type="Texture2D" uid="uid://dkqhvg0mq8dql" path="res://Assets/torso-shooting/torso-shotgun-shooting0003.png" id="16_2ijsl"]
+[ext_resource type="Texture2D" uid="uid://bqqh0lk4nwc62" path="res://Assets/torso-walking/torso-rifle-walking0006.png" id="16_xwi16"]
+[ext_resource type="Texture2D" uid="uid://cmvsknfhan38q" path="res://Assets/torso-shooting/torso-shotgun-shooting0004.png" id="17_p1odr"]
+[ext_resource type="Texture2D" uid="uid://dx5e730vwmyx4" path="res://Assets/torso-walking/torso-shotgun-walking0001.png" id="18_vfarp"]
+[ext_resource type="Texture2D" uid="uid://dto5pt1r8xw43" path="res://Assets/torso-walking/torso-shotgun-walking0002.png" id="19_y6uwr"]
+[ext_resource type="Texture2D" uid="uid://3p0tbv6mi8se" path="res://Assets/torso-walking/torso-shotgun-walking0003.png" id="20_83xs0"]
+[ext_resource type="Texture2D" uid="uid://6g8soaqwsx7x" path="res://Assets/torso-walking/torso-shotgun-walking0004.png" id="21_ypfnu"]
+[ext_resource type="Texture2D" uid="uid://bjkotixr584lu" path="res://Assets/torso-walking/torso-shotgun-walking0005.png" id="22_xuaoq"]
+[ext_resource type="Texture2D" uid="uid://c3pf3x4uw0alj" path="res://Assets/torso-walking/torso-sniper-walking0001.png" id="35_5x828"]
+[ext_resource type="Texture2D" uid="uid://g331g5si1ny6" path="res://Assets/torso-shooting/torso-sniper-shooting0001.png" id="36_c1k8q"]
+[ext_resource type="Texture2D" uid="uid://drqr7y8h1pflr" path="res://Assets/torso-shooting/torso-sniper-shooting0002.png" id="37_e6mvm"]
+[ext_resource type="Texture2D" uid="uid://3w2jta2gwapj" path="res://Assets/torso-shooting/torso-sniper-shooting0003.png" id="38_57lvd"]
+[ext_resource type="Texture2D" uid="uid://b8hpcp00rv58k" path="res://Assets/torso-shooting/torso-sniper-shooting0004.png" id="39_ie7r7"]
+[ext_resource type="Texture2D" uid="uid://dtghfug4x4inl" path="res://Assets/torso-walking/torso-sniper-walking0002.png" id="40_vq3lt"]
+[ext_resource type="Texture2D" uid="uid://djjv6p4jelcwm" path="res://Assets/torso-walking/torso-sniper-walking0003.png" id="41_pukcj"]
+[ext_resource type="Texture2D" uid="uid://cmyn1cjb7ri8o" path="res://Assets/torso-walking/torso-sniper-walking0004.png" id="42_1htnp"]
+[ext_resource type="Texture2D" uid="uid://nm5ih8m1w6dm" path="res://Assets/torso-walking/torso-sniper-walking0005.png" id="43_m376e"]
+[ext_resource type="Texture2D" uid="uid://cxye4no3jrtk5" path="res://Assets/torso-walking/torso-sniper-walking0006.png" id="44_6b312"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cvnsp"]
 size = Vector2(40, 84)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2ijsl"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_83xs0")
+}],
+"loop": true,
+"name": &"legs-crouching",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("3_vgqql")
@@ -65,6 +104,54 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("11_nv4vc")
+}],
+"loop": true,
+"name": &"torso-rifle-idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_sbwqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xwi16")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_sweqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ph33w")
+}],
+"loop": false,
+"name": &"torso-rifle-shooting",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_nv4vc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_8gxox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_11gg7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qpa8y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_sbwqj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_xwi16")
+}],
+"loop": true,
+"name": &"torso-rifle-walking",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("10_igrcy")
 }, {
 "duration": 1.0,
@@ -78,6 +165,99 @@ animations = [{
 }],
 "loop": false,
 "name": &"torso-shooting",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_y6uwr")
+}],
+"loop": true,
+"name": &"torso-shotgun-idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_wpjfl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_bi64h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_2ijsl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_p1odr")
+}],
+"loop": false,
+"name": &"torso-shotgun-shooting",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_vfarp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_y6uwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_83xs0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_ypfnu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_xuaoq")
+}],
+"loop": true,
+"name": &"torso-shotgun-walking",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_5x828")
+}],
+"loop": true,
+"name": &"torso-sniper-idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("36_c1k8q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_e6mvm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_57lvd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_ie7r7")
+}],
+"loop": false,
+"name": &"torso-sniper-shooting",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_5x828")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_vq3lt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_pukcj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_1htnp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_m376e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_6b312")
+}],
+"loop": true,
+"name": &"torso-sniper-walking",
 "speed": 15.0
 }, {
 "frames": [{
@@ -104,7 +284,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7dp3o"]
 size = Vector2(40, 63)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=609576188 node_paths=PackedStringArray("bullet_spawn", "bullet_timer", "Visuals", "legs", "torso", "stand", "crouch", "stand_visuals", "crouch_visuals") groups=["player"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=609576188 node_paths=PackedStringArray("bullet_spawn", "bullet_timer", "Visuals", "legs", "torso", "stand", "crouch", "player_head", "shoot_animation_timer") groups=["player"]]
 script = ExtResource("1_v0iea")
 bullet_scene = ExtResource("2_cvnsp")
 bullet_spawn = NodePath("Node2D/Marker2D")
@@ -114,18 +294,12 @@ legs = NodePath("Node2D/legs")
 torso = NodePath("Node2D/torso")
 stand = NodePath("CollisionShape2D")
 crouch = NodePath("CollisionShape2D2")
-stand_visuals = NodePath("CollisionShape2D/ColorRect")
-crouch_visuals = NodePath("CollisionShape2D2/ColorRect")
+player_head = NodePath("Head")
+shoot_animation_timer = NodePath("Timer2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1673565749]
 position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_cvnsp")
-
-[node name="ColorRect" type="ColorRect" parent="CollisionShape2D" unique_id=1791704229]
-offset_left = -20.0
-offset_top = -42.0
-offset_right = 20.0
-offset_bottom = 42.0
 
 [node name="Node2D" type="Node2D" parent="." unique_id=1398859633]
 
@@ -136,13 +310,13 @@ position = Vector2(59, -11)
 position = Vector2(6.5000024, -21.499992)
 scale = Vector2(1.7343751, 1.984375)
 sprite_frames = SubResource("SpriteFrames_2ijsl")
-animation = &"legs-walking"
+animation = &"legs-crouching"
 
 [node name="torso" type="AnimatedSprite2D" parent="Node2D" unique_id=1787478656]
 position = Vector2(6.500002, -20.499998)
 scale = Vector2(1.9218751, 1.921875)
 sprite_frames = SubResource("SpriteFrames_p1odr")
-animation = &"torso-shooting"
+animation = &"torso-sniper-walking"
 
 [node name="Timer" type="Timer" parent="." unique_id=1943015192]
 wait_time = 0.2
@@ -155,10 +329,11 @@ position = Vector2(1, 10.5)
 shape = SubResource("RectangleShape2D_7dp3o")
 disabled = true
 
-[node name="ColorRect" type="ColorRect" parent="CollisionShape2D2" unique_id=610162959]
-offset_left = -20.0
-offset_top = -31.5
-offset_right = 20.0
-offset_bottom = 31.5
+[node name="Head" type="Marker2D" parent="." unique_id=1723864663]
+position = Vector2(1, -32)
+
+[node name="Timer2" type="Timer" parent="." unique_id=1409685132]
+one_shot = true
 
 [connection signal="timeout" from="Timer" to="." method="_bullet"]
+[connection signal="timeout" from="Timer2" to="." method="_on_shoot_animation_timer_timeout"]

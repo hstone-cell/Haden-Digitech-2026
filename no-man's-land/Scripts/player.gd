@@ -13,6 +13,10 @@ const base_damage: int = 1
 const base_fire_rate: float = 0.2
 var current_firing_distance: int = 550
 const base_firing_distance: int = 550
+var current_weapon_id: String = ""
+var idle_animation: String = "torso-idle"
+var walking_animation: String = "torso-walking"
+var shooting_animation: String = "torso-shooting"
 @export var health_ui: ProgressBar
 @export var bullet_scene: PackedScene
 @export var bullet_spawn: Marker2D
@@ -22,10 +26,24 @@ const base_firing_distance: int = 550
 @export var torso: AnimatedSprite2D
 @export var stand: CollisionShape2D
 @export var crouch: CollisionShape2D
-@export var stand_visuals: ColorRect
-@export var crouch_visuals: ColorRect
+@export var player_head: Marker2D
+@export var shoot_animation_timer: Timer
 
 
+func _ready() -> void:
+	_update_animation_names()
+	torso.play(idle_animation)
+	legs.play("legs-idle")
+	
+func _update_animation_names() -> void:
+	if current_weapon_id == "":
+		idle_animation = "torso-idle"
+		walking_animation = "torso-walking"
+		shooting_animation = "torso-shooting"
+	else:
+		idle_animation = "torso-" + current_weapon_id + "-idle"
+		walking_animation = "torso-" + current_weapon_id + "-walking"
+		shooting_animation = "torso-" + current_weapon_id + "-shooting"
 
 
 func _physics_process(delta: float) -> void:
@@ -41,33 +59,41 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 		if legs.animation != "legs-walking":
 			legs.play("legs-walking")
-		if torso.animation != "torso-walking":
-			torso.play("torso-walking")
+		if torso.animation != shooting_animation:
+			if Input.is_action_pressed("ui_crouch"):
+				if torso.animation != (idle_animation):
+					torso.play(idle_animation)
+			elif torso.animation != walking_animation:
+				torso.play(walking_animation)
+				
+					
 		
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		if legs.animation != "legs-idle":
 			legs.play("legs-idle")
-		if torso.animation != "torso-idle" and not torso.animation == "torso-shooting":
-			torso.play("torso-idle")
+		if torso.animation != shooting_animation:
+			if torso.animation != idle_animation:
+				torso.play(idle_animation)
 	
 	if Input.is_action_pressed("ui_crouch") and is_on_floor():
 		crouch.disabled = false
 		stand.disabled = true
 		velocity.x = 0
 		velocity.y = 0
-		stand_visuals.color = 0
-		crouch_visuals.color = 100
+		player_head.position.y = -14
+		torso.position.y = -7.5
+		legs.play("legs-crouching")
 	else:
 		crouch.disabled = true
 		stand.disabled = false
-		stand_visuals.color = 100
-		crouch_visuals.color = 0
+		player_head.position.y = -32
+		torso.position.y = -20.5
 	
-	if Input.is_action_pressed("ui_shoot") and can_shoot:
+	if Input.is_action_just_pressed("ui_shoot") and can_shoot:
 		_shoot()
-		if torso.animation != "torso-shooting":
-			torso.play("torso-shooting")
+		torso.play(shooting_animation)
+		shoot_animation_timer.start()
 
 		
 	var input_dir = Input.get_axis("ui_left", "ui_right")
@@ -107,18 +133,30 @@ func _shoot() -> void:
 		current_ammo -= 1
 		if current_ammo == 0:
 			has_pickup_weapon = false
+			current_weapon_id = ""
 			current_damage = base_damage
 			bullet_timer.wait_time = base_fire_rate
 			current_firing_distance = base_firing_distance
+			_update_animation_names()
 	
 func pickup_weapon(_id: String, stats: Dictionary) -> void:
 	has_pickup_weapon = true
+	current_weapon_id = _id
 	current_damage = stats.get("damage", base_damage)
 	current_ammo = stats.get("ammo", 10)
 	bullet_timer.wait_time = stats.get("fire_rate", base_fire_rate)
 	current_firing_distance = stats.get("fire_distance", base_firing_distance)
+	_update_animation_names()
 	
 	
 func _bullet() -> void:
 	can_shoot = true
 	
+
+
+func _on_shoot_animation_timer_timeout() -> void:
+	var direction := Input.get_axis("ui_left", "ui_right")
+	if direction != 0:
+		torso.play(walking_animation)
+	else: 
+		torso.play(idle_animation)

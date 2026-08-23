@@ -1,21 +1,29 @@
 [gd_scene format=3 uid="uid://cff464mahxhrp"]
 
 [ext_resource type="Script" uid="uid://bhxpvy8dhr7vc" path="res://Scripts/weapon_crate.gd" id="1_kc511"]
+[ext_resource type="Texture2D" uid="uid://djfeo2gvtbjv0" path="res://Assets/weapon-crate.png" id="2_2iew4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2iew4"]
-size = Vector2(122, 74)
+size = Vector2(106, 53)
 
 [node name="Area2D" type="Area2D" unique_id=521522661]
 script = ExtResource("1_kc511")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1004406520]
+position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_2iew4")
 
 [node name="ColorRect" type="ColorRect" parent="CollisionShape2D" unique_id=2062209042]
+visible = false
 offset_left = -61.0
 offset_top = -37.0
 offset_right = 61.0
 offset_bottom = 37.0
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=1906901038]
+position = Vector2(0, 9.5)
+scale = Vector2(0.68749994, 0.5234375)
+texture = ExtResource("2_2iew4")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

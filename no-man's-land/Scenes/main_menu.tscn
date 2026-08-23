@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://6dnq61oibg3y"]
 
-[ext_resource type="Texture2D" uid="uid://urotxrws788c" path="res://Assets/main_menu_design.png" id="1_28flt"]
 [ext_resource type="Script" uid="uid://ce0cwynppjdss" path="res://Scripts/main_menu.gd" id="1_48xlc"]
+[ext_resource type="Texture2D" uid="uid://bqch26o8kbxd" path="res://Assets/main_menu.png" id="2_48xlc"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ehe0"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -10,15 +10,6 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_48xlc"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ce3w2"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t1dhk"]
-bg_color = Color(0.6, 0.6, 0.6, 0)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cp0ys"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n45e2"]
@@ -54,7 +45,7 @@ script = ExtResource("1_48xlc")
 layout_mode = 0
 offset_right = 1156.0
 offset_bottom = 649.0
-texture = ExtResource("1_28flt")
+texture = ExtResource("2_48xlc")
 expand_mode = 1
 
 [node name="play" type="Button" parent="." unique_id=613340555]
@@ -67,22 +58,12 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_1ehe0")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_vr1f0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_48xlc")
 
-[node name="load" type="Button" parent="." unique_id=1542451137]
+[node name="help" type="Button" parent="." unique_id=469914116]
 layout_mode = 0
-offset_left = 804.0
-offset_top = 266.0
-offset_right = 920.0
-offset_bottom = 309.0
-theme_override_styles/normal = SubResource("StyleBoxFlat_ce3w2")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_t1dhk")
-theme_override_styles/hover = SubResource("StyleBoxFlat_cp0ys")
-
-[node name="options" type="Button" parent="." unique_id=469914116]
-layout_mode = 0
-offset_left = 758.0
-offset_top = 353.0
-offset_right = 969.0
-offset_bottom = 398.0
+offset_left = 803.0
+offset_top = 304.0
+offset_right = 923.0
+offset_bottom = 349.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_n45e2")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5egv6")
 theme_override_styles/hover = SubResource("StyleBoxFlat_yhxw7")
@@ -98,5 +79,5 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_trj04")
 theme_override_styles/hover = SubResource("StyleBoxFlat_16hvj")
 
 [connection signal="pressed" from="play" to="." method="_on_play_button_pressed"]
-[connection signal="pressed" from="options" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="help" to="." method="_on_help_button_pressed"]
 [connection signal="pressed" from="quit" to="." method="_on_quit_button_pressed"]

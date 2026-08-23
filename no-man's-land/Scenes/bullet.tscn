@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://btgjdgom1kl1c"]
 
 [ext_resource type="Script" uid="uid://08874rs0m1g7" path="res://Scripts/bullet.gd" id="1_xjght"]
+[ext_resource type="Texture2D" uid="uid://g4ldjrb52lla" path="res://Assets/bullet.png" id="2_oduel"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4mw4s"]
 size = Vector2(20, 4)
@@ -12,12 +13,18 @@ script = ExtResource("1_xjght")
 shape = SubResource("RectangleShape2D_4mw4s")
 
 [node name="ColorRect" type="ColorRect" parent="CollisionShape2D" unique_id=1282153036]
+visible = false
 offset_left = -10.0
 offset_top = -2.0
 offset_right = 10.0
 offset_bottom = 2.0
 color = Color(1, 0.46666667, 0.09803922, 1)
 
-[connection signal="body_entered" from="." to="." method="_damage_enemy"]
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=1571436184]
+position = Vector2(-1.2499998, 0.12500007)
+scale = Vector2(0.546875, 0.30468747)
+texture = ExtResource("2_oduel")
+
 [connection signal="body_entered" from="." to="." method="_damage_player"]
+[connection signal="body_entered" from="." to="." method="_damage_enemy"]
 [connection signal="body_entered" from="." to="." method="_on_body_collision"]

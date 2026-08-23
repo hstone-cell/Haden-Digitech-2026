@@ -2,41 +2,150 @@
 
 [ext_resource type="Script" uid="uid://wnywd8qv4ita" path="res://Scripts/enemy.gd" id="1_hghv2"]
 [ext_resource type="PackedScene" uid="uid://btgjdgom1kl1c" path="res://Scenes/bullet.tscn" id="2_1f0kj"]
+[ext_resource type="Texture2D" uid="uid://c4w7ickv2ry0l" path="res://Assets/torso-idle/enemy-torso-idle.png" id="3_287tu"]
+[ext_resource type="Texture2D" uid="uid://cid5yh53fg7rv" path="res://Assets/legs-idle/enemy-legs-idle.png" id="3_afpow"]
+[ext_resource type="Texture2D" uid="uid://csgmldh4n6b1j" path="res://Assets/legs-walking/enemy-legs-walking0005.png" id="4_8uf12"]
+[ext_resource type="Texture2D" uid="uid://di5gtuma1plou" path="res://Assets/legs-walking/enemy-legs-walking0004.png" id="5_po0sg"]
+[ext_resource type="Texture2D" uid="uid://dmikj715f3k42" path="res://Assets/legs-walking/enemy-legs-walking0001.png" id="6_haro7"]
+[ext_resource type="Texture2D" uid="uid://dac7j6kqypqr5" path="res://Assets/legs-walking/enemy-legs-walking0002.png" id="7_56vhr"]
+[ext_resource type="Texture2D" uid="uid://ddg7y7i3hx4fn" path="res://Assets/legs-walking/enemy-legs-walking0003.png" id="8_ta2yt"]
+[ext_resource type="Texture2D" uid="uid://b08plpg3cfwoq" path="res://Assets/torso-shooting/enemy-torso-shooting0001.png" id="10_scl1n"]
+[ext_resource type="Texture2D" uid="uid://dg1l415a3lv88" path="res://Assets/torso-shooting/enemy-torso-shooting0002.png" id="11_dhkrs"]
+[ext_resource type="Texture2D" uid="uid://wp3juhxvbi3f" path="res://Assets/torso-shooting/enemy-torso-shooting0003.png" id="12_5xdhn"]
+[ext_resource type="Texture2D" uid="uid://cpptdl0bkljs6" path="res://Assets/torso-shooting/enemy-torso-shooting0004.png" id="13_4jyny"]
+[ext_resource type="Texture2D" uid="uid://boaag8slfbh6v" path="res://Assets/torso-walking/enemy-torso-walking0001.png" id="14_vh8xy"]
+[ext_resource type="Texture2D" uid="uid://vcckp5wo3vgw" path="res://Assets/torso-walking/enemy-torso-walking0002.png" id="15_qjcj6"]
+[ext_resource type="Texture2D" uid="uid://825whwwlmkav" path="res://Assets/torso-walking/enemy-torso-walking0003.png" id="16_4ycey"]
+[ext_resource type="Texture2D" uid="uid://dfvpsmhciti53" path="res://Assets/torso-walking/enemy-torso-walking0004.png" id="17_8cim4"]
+[ext_resource type="Texture2D" uid="uid://84f77637xs68" path="res://Assets/torso-walking/enemy-torso-walking0005.png" id="18_7x82w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ne65n"]
-size = Vector2(51, 82)
+size = Vector2(45, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hghv2"]
-size = Vector2(54, 83)
+size = Vector2(50, 80.5)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2146601599 node_paths=PackedStringArray("bullet_spawn", "bullet_timer", "visuals") groups=["enemy"]]
+[sub_resource type="SpriteFrames" id="SpriteFrames_287tu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_afpow")
+}],
+"loop": true,
+"name": &"enemy-legs-idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_8uf12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_haro7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_56vhr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_ta2yt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_po0sg")
+}],
+"loop": true,
+"name": &"enemy-legs-walking",
+"speed": 15.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0830c"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_287tu")
+}],
+"loop": true,
+"name": &"enemy-torso-idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_scl1n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_dhkrs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_5xdhn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_4jyny")
+}],
+"loop": false,
+"name": &"enemy-torso-shooting",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_vh8xy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_qjcj6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_4ycey")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_8cim4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_7x82w")
+}],
+"loop": true,
+"name": &"enemy-torso-walking",
+"speed": 15.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=2146601599 node_paths=PackedStringArray("bullet_spawn", "bullet_timer", "visuals", "sight_ray", "sight_timer", "enemy_legs", "enemy_torso", "shoot_animation_timer") groups=["enemy"]]
 script = ExtResource("1_hghv2")
 bullet_scene = ExtResource("2_1f0kj")
 bullet_spawn = NodePath("Node2D/Marker2D")
 bullet_timer = NodePath("Timer")
 visuals = NodePath("Node2D")
+sight_ray = NodePath("sightray")
+sight_timer = NodePath("Timer2")
+enemy_legs = NodePath("Node2D/enemy-legs")
+enemy_torso = NodePath("Node2D/enemy-torso")
+shoot_animation_timer = NodePath("Timer3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1810568997]
+position = Vector2(1.5, -1)
 shape = SubResource("RectangleShape2D_ne65n")
-
-[node name="ColorRect" type="ColorRect" parent="CollisionShape2D" unique_id=546352589]
-offset_left = -27.0
-offset_top = -42.0
-offset_right = 27.0
-offset_bottom = 42.0
-color = Color(0.5568628, 0.0627451, 0.09019608, 1)
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1616990913]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=121400332]
+position = Vector2(2, -1.25)
 shape = SubResource("RectangleShape2D_hghv2")
 
 [node name="Node2D" type="Node2D" parent="." unique_id=278606616]
 
+[node name="enemy-legs" type="AnimatedSprite2D" parent="Node2D" unique_id=1370392294]
+position = Vector2(6.5, -21.5)
+scale = Vector2(1.7, 1.9)
+sprite_frames = SubResource("SpriteFrames_287tu")
+animation = &"enemy-legs-walking"
+
+[node name="enemy-torso" type="AnimatedSprite2D" parent="Node2D" unique_id=1876769976]
+position = Vector2(6.5, -21.150002)
+scale = Vector2(1.9, 1.8796874)
+sprite_frames = SubResource("SpriteFrames_0830c")
+animation = &"enemy-torso-idle"
+
 [node name="Marker2D" type="Marker2D" parent="Node2D" unique_id=466063547]
 position = Vector2(55, -15)
+scale = Vector2(1.7, 1.9)
 
 [node name="ColorRect" type="ColorRect" parent="Node2D/Marker2D" unique_id=920466957]
+visible = false
 offset_left = -7.0
 offset_top = -8.0
 offset_right = 7.0
@@ -46,5 +155,16 @@ offset_bottom = 7.0
 wait_time = 0.5
 one_shot = true
 
+[node name="Timer2" type="Timer" parent="." unique_id=2080251191]
+wait_time = 0.5
+
+[node name="sightray" type="RayCast2D" parent="." unique_id=84410581]
+target_position = Vector2(118, 0)
+
+[node name="Timer3" type="Timer" parent="." unique_id=1198776527]
+one_shot = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_damage_player"]
 [connection signal="timeout" from="Timer" to="." method="_bullet_timer"]
+[connection signal="timeout" from="Timer2" to="." method="_on_sight_timer_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_shoot_animation_timer_timeout"]
