@@ -3,21 +3,21 @@ extends Area2D
 const weapons: Dictionary = {
 	"shotgun": {
 		"ammo": 16,
-		"damage": 3,
+		"damage": 5,
 		"fire_rate": 1.5,
-		"fire_distance": 450,
+		"fire_distance": 400,
 	},
 	"rifle": {
 		"ammo": 32,
-		"damage": 1.5,
+		"damage": 3,
 		"fire_rate": 0.7,
-		"fire_distance": 500,
+		"fire_distance": 550,
 	},
 	"sniper": {
 		"ammo": 3,
-		"damage": 10,
+		"damage": 5,
 		"fire_rate": 2.5,
-		"fire_distance": 600,
+		"fire_distance": 700,
 	},	
 }
 

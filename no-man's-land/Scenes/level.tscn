@@ -121,7 +121,7 @@ shape = SubResource("RectangleShape2D_81xng")
 
 [node name="ColorRect" type="ColorRect" parent="StaticBody2D/CollisionShape2D2" unique_id=170669407]
 offset_left = -498.0
-offset_top = -337.0
+offset_top = -565.0
 offset_right = 99.0
 offset_bottom = 247.0
 color = Color(0.5, 0.5, 0.5, 1)
@@ -135,6 +135,8 @@ position = Vector2(500, 502)
 health_ui = NodePath("../CanvasLayer/ProgressBar")
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D" unique_id=688703981]
+position = Vector2(0, -2)
+offset = Vector2(0, -118)
 
 [node name="CharacterBody2D2" parent="." unique_id=2146601599 instance=ExtResource("1_k5f4k")]
 position = Vector2(1668, 514)
@@ -184,6 +186,7 @@ repeat_size = Vector2(1152, 0)
 [node name="TextureRect" type="TextureRect" parent="Parallax2D2" unique_id=1332153301]
 z_index = -4
 offset_left = -13.0
+offset_top = -135.0
 offset_right = 1156.0
 offset_bottom = 866.0
 texture = ExtResource("7_754fn")
@@ -195,7 +198,7 @@ repeat_size = Vector2(1152, 0)
 [node name="TextureRect" type="TextureRect" parent="Parallax2D" unique_id=1834169872]
 z_index = -5
 offset_left = -18.0
-offset_top = -19.0
+offset_top = -162.0
 offset_right = 1134.0
 offset_bottom = 648.0
 texture = ExtResource("7_8c0lf")
@@ -206,6 +209,7 @@ repeat_size = Vector2(1152, 0)
 
 [node name="TextureRect" type="TextureRect" parent="Parallax2D3" unique_id=85200843]
 z_index = -3
+offset_top = -285.0
 offset_right = 1171.0
 offset_bottom = 780.0
 texture = ExtResource("9_bvt00")
@@ -216,14 +220,14 @@ repeat_size = Vector2(1152, 0)
 [node name="TextureRect" type="TextureRect" parent="Parallax2D4" unique_id=678779169]
 z_index = -2
 offset_left = -23.0
-offset_top = 11.0
+offset_top = -156.0
 offset_right = 1158.0
 offset_bottom = 630.0
 texture = ExtResource("10_oqgf2")
 
 [node name="TextureRect2" type="TextureRect" parent="." unique_id=1465612230]
 offset_left = -570.0
-offset_top = 24.0
+offset_top = -180.0
 offset_right = -76.0
 offset_bottom = 541.0
 texture = ExtResource("12_ha31o")

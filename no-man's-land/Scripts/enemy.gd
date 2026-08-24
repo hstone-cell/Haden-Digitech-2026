@@ -7,7 +7,7 @@ var gravity: float = 900
 var player: CharacterBody2D
 var player_head: Node2D
 var sight_duration: float = 0.0
-@export var reaction_time: float = 0.4
+@export var reaction_time: float = 1.0
 @export var lose_sight_time: float = 3.0
 @export var retreat_distance: float = 900.0
 @export var retreat_max_duration: float = 4.0
