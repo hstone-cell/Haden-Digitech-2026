@@ -4,7 +4,8 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -350.0
 var facing_direction = 1 
-var health: int = 10
+const base_health: int = 10
+var health: int = base_health
 var can_shoot = true
 var current_ammo: int = 0
 var current_damage: int = 1
@@ -160,3 +161,8 @@ func _on_shoot_animation_timer_timeout() -> void:
 		torso.play(walking_animation)
 	else: 
 		torso.play(idle_animation)
+		
+func heal(amount: int) -> void:
+	health = min(health + amount, base_health)
+	health_ui.value = health
+		
