@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://b6l3rm2wwow2s"
-path="res://.godot/imported/No-Man's-Land-Background.png-c0a56dbbd7d445159d1591a0bcbcc86c.ctex"
+path="res://.godot/imported/No-Man's-Land-Background.png-d7c9c24cc695d91a185bfc55e0fd95a7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Background/No-Man's-Land-Background.png"
-dest_files=["res://.godot/imported/No-Man's-Land-Background.png-c0a56dbbd7d445159d1591a0bcbcc86c.ctex"]
+source_file="res://Assets/background/No-Man's-Land-Background.png"
+dest_files=["res://.godot/imported/No-Man's-Land-Background.png-d7c9c24cc695d91a185bfc55e0fd95a7.ctex"]
 
 [params]
 

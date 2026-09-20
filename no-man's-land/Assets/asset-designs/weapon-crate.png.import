@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://eawlcw2me70m"
-path="res://.godot/imported/No-Man's-Land-Foreground.png-d8719e031c9be99521f4b5b8cabd706a.ctex"
+uid="uid://djfeo2gvtbjv0"
+path="res://.godot/imported/weapon-crate.png-fa706dfe1afefadc2ae438dc81997d18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/background/No-Man's-Land-Foreground.png"
-dest_files=["res://.godot/imported/No-Man's-Land-Foreground.png-d8719e031c9be99521f4b5b8cabd706a.ctex"]
+source_file="res://Assets/asset-designs/weapon-crate.png"
+dest_files=["res://.godot/imported/weapon-crate.png-fa706dfe1afefadc2ae438dc81997d18.ctex"]
 
 [params]
 

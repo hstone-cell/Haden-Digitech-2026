@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://t1gjit55ngri"]
+
+[ext_resource type="Script" uid="uid://hspcos2xq3pl" path="res://death_sceen.gd" id="1_ccw4a"]
+[ext_resource type="Texture2D" uid="uid://cg6ic70oha6x8" path="res://Assets/menus/death_screen.png" id="1_rcfb4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rcfb4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccw4a"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l3cl6"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6gi48"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_aob5s"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nd2ya"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Control" type="Control" unique_id=1041857522]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ccw4a")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=671782108]
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 647.0
+texture = ExtResource("1_rcfb4")
+expand_mode = 3
+
+[node name="main_menu" type="Button" parent="." unique_id=571537520]
+layout_mode = 0
+offset_left = 48.0
+offset_top = 578.0
+offset_right = 471.0
+offset_bottom = 610.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_rcfb4")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ccw4a")
+theme_override_styles/hover = SubResource("StyleBoxFlat_l3cl6")
+
+[node name="quit" type="Button" parent="." unique_id=1706658317]
+layout_mode = 0
+offset_left = 1004.0
+offset_top = 578.0
+offset_right = 1083.0
+offset_bottom = 616.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_6gi48")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_aob5s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_nd2ya")
+
+[connection signal="pressed" from="main_menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqy2fp0g8bmrc"
-path="res://.godot/imported/No-Man's-Land-Banner.png-195ae0f3edcd7903fa9928e20e9539fc.ctex"
+uid="uid://bqch26o8kbxd"
+path="res://.godot/imported/main_menu.png-0ef18847d60acfa07646d43fd5621c94.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/No-Man's-Land-Banner.png"
-dest_files=["res://.godot/imported/No-Man's-Land-Banner.png-195ae0f3edcd7903fa9928e20e9539fc.ctex"]
+source_file="res://Assets/menus/main_menu.png"
+dest_files=["res://.godot/imported/main_menu.png-0ef18847d60acfa07646d43fd5621c94.ctex"]
 
 [params]
 

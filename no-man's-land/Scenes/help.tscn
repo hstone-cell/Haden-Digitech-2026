@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://7l7sps1kbgh7"]
+
+[ext_resource type="Script" uid="uid://bxejfgi7lihgj" path="res://Scripts/help.gd" id="1_377fx"]
+[ext_resource type="Texture2D" uid="uid://dd04sbogbmdwh" path="res://Assets/menus/Help.png" id="1_dn2fg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_377fx"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x1pvs"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ga13k"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="Control" type="Control" unique_id=575833508]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_377fx")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=339857820]
+layout_mode = 0
+offset_right = 1151.0
+offset_bottom = 647.0
+texture = ExtResource("1_dn2fg")
+expand_mode = 3
+
+[node name="Exit" type="Button" parent="." unique_id=762297005]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 17.0
+offset_right = 60.0
+offset_bottom = 53.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_377fx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_x1pvs")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ga13k")
+
+[connection signal="pressed" from="Exit" to="." method="_on_exit_button_pressed"]

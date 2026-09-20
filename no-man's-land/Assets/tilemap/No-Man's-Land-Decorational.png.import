@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dbrvmdhjleuf7"
-path="res://.godot/imported/No Man's Land (Hill).png-9c8d950cab058761bed1a4e2c24c0aab.ctex"
+uid="uid://27wrjyqkda3g"
+path="res://.godot/imported/No-Man's-Land-Decorational.png-0b7e60c3edd773ebfb8fa107e4c3e405.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/No Man's Land (Hill).png"
-dest_files=["res://.godot/imported/No Man's Land (Hill).png-9c8d950cab058761bed1a4e2c24c0aab.ctex"]
+source_file="res://Assets/tilemap/No-Man's-Land-Decorational.png"
+dest_files=["res://.godot/imported/No-Man's-Land-Decorational.png-0b7e60c3edd773ebfb8fa107e4c3e405.ctex"]
 
 [params]
 

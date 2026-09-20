@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cff464mahxhrp"]
 
 [ext_resource type="Script" uid="uid://bhxpvy8dhr7vc" path="res://Scripts/weapon_crate.gd" id="1_kc511"]
-[ext_resource type="Texture2D" uid="uid://djfeo2gvtbjv0" path="res://Assets/weapon-crate.png" id="2_2iew4"]
+[ext_resource type="Texture2D" uid="uid://djfeo2gvtbjv0" path="res://Assets/asset-designs/weapon-crate.png" id="2_2iew4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2iew4"]
 size = Vector2(106, 53)

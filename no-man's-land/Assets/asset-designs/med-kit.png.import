@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://djfeo2gvtbjv0"
-path="res://.godot/imported/weapon-crate.png-0ae3b1146b3d1a4a296b3d1fb60add3e.ctex"
+uid="uid://bbq5egibuq77u"
+path="res://.godot/imported/med-kit.png-b5fa40624958bccbd3fd222de4916c0b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/weapon-crate.png"
-dest_files=["res://.godot/imported/weapon-crate.png-0ae3b1146b3d1a4a296b3d1fb60add3e.ctex"]
+source_file="res://Assets/asset-designs/med-kit.png"
+dest_files=["res://.godot/imported/med-kit.png-b5fa40624958bccbd3fd222de4916c0b.ctex"]
 
 [params]
 

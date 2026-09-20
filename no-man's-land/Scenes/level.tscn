@@ -1,17 +1,17 @@
 [gd_scene format=4 uid="uid://ducughbd48sif"]
 
-[ext_resource type="Script" uid="uid://bqw3vyge4d5tj" path="res://Scripts/level.gd" id="1_6phgx"]
 [ext_resource type="PackedScene" uid="uid://brfbm10vgyfvb" path="res://Scenes/enemy.tscn" id="1_k5f4k"]
 [ext_resource type="PackedScene" uid="uid://dfxn4lets8vwc" path="res://Scenes/player.tscn" id="1_tumq0"]
+[ext_resource type="Script" uid="uid://bqw3vyge4d5tj" path="res://Scripts/level.gd" id="1_vofx3"]
 [ext_resource type="PackedScene" uid="uid://cff464mahxhrp" path="res://Scenes/weapon_crate.tscn" id="4_81xng"]
-[ext_resource type="Texture2D" uid="uid://dbrvmdhjleuf7" path="res://Assets/No Man's Land (Hill).png" id="5_0f350"]
-[ext_resource type="Texture2D" uid="uid://b6peem3nsyxxh" path="res://Assets/No Man's Land (Ground).png" id="6_0f350"]
-[ext_resource type="Texture2D" uid="uid://b6l3rm2wwow2s" path="res://Assets/Background/No-Man's-Land-Background.png" id="7_8c0lf"]
-[ext_resource type="Texture2D" uid="uid://dmk5if8reqg3k" path="res://Assets/Background/No-Man's-Land-Close-Hill.png" id="7_754fn"]
-[ext_resource type="Texture2D" uid="uid://c7bv8jqp86x45" path="res://Assets/Background/No-Man's-Land-Closest-Hill.png" id="9_bvt00"]
-[ext_resource type="Texture2D" uid="uid://eawlcw2me70m" path="res://Assets/Background/No-Man's-Land-Foreground.png" id="10_oqgf2"]
-[ext_resource type="Texture2D" uid="uid://27wrjyqkda3g" path="res://Assets/No-Man's-Land-Decorational.png" id="11_qxfql"]
-[ext_resource type="Texture2D" uid="uid://cqy2fp0g8bmrc" path="res://Assets/No-Man's-Land-Banner.png" id="12_ha31o"]
+[ext_resource type="Texture2D" uid="uid://dbrvmdhjleuf7" path="res://Assets/tilemap/No Man's Land (Hill).png" id="5_0f350"]
+[ext_resource type="Texture2D" uid="uid://b6peem3nsyxxh" path="res://Assets/tilemap/No Man's Land (Ground).png" id="6_0f350"]
+[ext_resource type="Texture2D" uid="uid://b6l3rm2wwow2s" path="res://Assets/background/No-Man's-Land-Background.png" id="7_8c0lf"]
+[ext_resource type="Texture2D" uid="uid://dmk5if8reqg3k" path="res://Assets/background/No-Man's-Land-Close-Hill.png" id="7_754fn"]
+[ext_resource type="Texture2D" uid="uid://c7bv8jqp86x45" path="res://Assets/background/No-Man's-Land-Closest-Hill.png" id="9_bvt00"]
+[ext_resource type="Texture2D" uid="uid://eawlcw2me70m" path="res://Assets/background/No-Man's-Land-Foreground.png" id="10_oqgf2"]
+[ext_resource type="Texture2D" uid="uid://27wrjyqkda3g" path="res://Assets/tilemap/No-Man's-Land-Decorational.png" id="11_qxfql"]
+[ext_resource type="Texture2D" uid="uid://cqy2fp0g8bmrc" path="res://Assets/background/No-Man's-Land-Banner.png" id="12_ha31o"]
 [ext_resource type="Texture2D" uid="uid://wuuj63gr1axs" path="res://Assets/end-flag/end-flag0000.png" id="13_2klc5"]
 [ext_resource type="Script" uid="uid://c6byauass6ng5" path="res://Scripts/end_zone.gd" id="13_nngtn"]
 [ext_resource type="Texture2D" uid="uid://r8pakdacn6dn" path="res://Assets/end-flag/end-flag0001.png" id="14_nngtn"]
@@ -112,7 +112,7 @@ animations = [{
 size = Vector2(114, 100)
 
 [node name="Node2D" type="Node2D" unique_id=1356729191]
-script = ExtResource("1_6phgx")
+script = ExtResource("1_vofx3")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1392472844]
 

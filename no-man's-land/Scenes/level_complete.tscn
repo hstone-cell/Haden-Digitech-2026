@@ -1,7 +1,26 @@
 [gd_scene format=3 uid="uid://bw46rdc6tk0ma"]
 
-[ext_resource type="Texture2D" uid="uid://cymna4bkmut1m" path="res://Assets/Background/level-completed.png" id="1_u5kwf"]
-[ext_resource type="FontFile" uid="uid://k4jioctoyix1" path="res://Assets/Jersey10-Regular.ttf" id="2_onuut"]
+[ext_resource type="Script" uid="uid://ddjexyi525uam" path="res://Scripts/level_complete.gd" id="1_nqaca"]
+[ext_resource type="Texture2D" uid="uid://cymna4bkmut1m" path="res://Assets/menus/level-completed.png" id="1_u5kwf"]
+[ext_resource type="FontFile" uid="uid://k4jioctoyix1" path="res://Assets/fonts/Jersey10-Regular.ttf" id="2_onuut"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xuta2"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nqaca"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4mfcs"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q8x36"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_202tw"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ljw4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [node name="Control" type="Control" unique_id=936177438]
 layout_mode = 3
@@ -11,6 +30,7 @@ anchor_bottom = 1.0
 offset_right = 14.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_nqaca")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1341036192]
 layout_mode = 0
@@ -32,7 +52,7 @@ offset_left = 101.0
 offset_top = 252.0
 offset_right = 639.0
 offset_bottom = 356.0
-theme_override_colors/font_color = Color(0.9074435, 0.6381596, 0.7083308, 1)
+theme_override_colors/font_color = Color(0.93, 0.744, 0.79050004, 1)
 theme_override_fonts/font = ExtResource("2_onuut")
 theme_override_font_sizes/font_size = 80
 text = "Level Complete"
@@ -64,6 +84,18 @@ text = "Return to Main Menu"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="main_menu" type="Button" parent="Label3" unique_id=1427168894]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 34.0
+offset_right = 308.0
+offset_bottom = 61.0
+theme_override_colors/font_color = Color(0.88, 0.88, 0.88, 0)
+theme_override_colors/icon_normal_color = Color(1, 1, 1, 0)
+theme_override_styles/normal = SubResource("StyleBoxFlat_xuta2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nqaca")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4mfcs")
+
 [node name="Label4" type="Label" parent="." unique_id=102284344]
 layout_mode = 0
 offset_left = 808.0
@@ -76,3 +108,16 @@ text = "Quit
 "
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="quit" type="Button" parent="Label4" unique_id=2058825230]
+layout_mode = 0
+offset_left = 95.0
+offset_top = 21.0
+offset_right = 176.0
+offset_bottom = 63.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_q8x36")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_202tw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5ljw4")
+
+[connection signal="pressed" from="Label3/main_menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Label4/quit" to="." method="_on_quit_pressed"]

@@ -115,7 +115,7 @@ func take_damage(damage: int) -> void:
 		health -= damage
 		health_ui.value = health
 	else:
-		get_tree().call_deferred("reload_current_scene")
+		get_tree().change_scene_to_file.call_deferred("res://death_sceen.tscn")
 		
 			
 func _shoot() -> void:

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6peem3nsyxxh"
-path="res://.godot/imported/No Man's Land (Ground).png-a3eb04730d6478df2756aec4f31a196f.ctex"
+uid="uid://g4ldjrb52lla"
+path="res://.godot/imported/bullet.png-d07278d26d6f266fd2a3690350412b05.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/No Man's Land (Ground).png"
-dest_files=["res://.godot/imported/No Man's Land (Ground).png-a3eb04730d6478df2756aec4f31a196f.ctex"]
+source_file="res://Assets/asset-designs/bullet.png"
+dest_files=["res://.godot/imported/bullet.png-d07278d26d6f266fd2a3690350412b05.ctex"]
 
 [params]
 
