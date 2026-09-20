@@ -1,19 +1,18 @@
 class_name Player
 extends CharacterBody2D
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -350.0
+const BASE_FIRING_DISTANCE: int = 550
+const BASE_HEALTH: int = 10
+const BASE_DAMAGE: int = 1
+const BASE_FIRE_RATE: float = 0.2
 var facing_direction = 1 
-const base_health: int = 10
-var health: int = base_health
+var health: int = BASE_HEALTH
 var can_shoot = true
 var current_ammo: int = 0
 var current_damage: int = 1
 var has_pickup_weapon: bool = false
-const base_damage: int = 1
-const base_fire_rate: float = 0.2
 var current_firing_distance: int = 550
-const base_firing_distance: int = 550
 var current_weapon_id: String = ""
 var idle_animation: String = "torso-idle"
 var walking_animation: String = "torso-walking"
@@ -135,18 +134,18 @@ func _shoot() -> void:
 		if current_ammo == 0:
 			has_pickup_weapon = false
 			current_weapon_id = ""
-			current_damage = base_damage
-			bullet_timer.wait_time = base_fire_rate
-			current_firing_distance = base_firing_distance
+			current_damage = BASE_DAMAGE
+			bullet_timer.wait_time = BASE_FIRE_RATE
+			current_firing_distance = BASE_FIRING_DISTANCE
 			_update_animation_names()
 	
 func pickup_weapon(_id: String, stats: Dictionary) -> void:
 	has_pickup_weapon = true
 	current_weapon_id = _id
-	current_damage = stats.get("damage", base_damage)
+	current_damage = stats.get("damage", BASE_DAMAGE)
 	current_ammo = stats.get("ammo", 10)
-	bullet_timer.wait_time = stats.get("fire_rate", base_fire_rate)
-	current_firing_distance = stats.get("fire_distance", base_firing_distance)
+	bullet_timer.wait_time = stats.get("fire_rate", BASE_FIRE_RATE)
+	current_firing_distance = stats.get("fire_distance", BASE_FIRING_DISTANCE)
 	_update_animation_names()
 	
 	
@@ -163,6 +162,6 @@ func _on_shoot_animation_timer_timeout() -> void:
 		torso.play(idle_animation)
 		
 func heal(amount: int) -> void:
-	health = min(health + amount, base_health)
+	health = min(health + amount, BASE_HEALTH)
 	health_ui.value = health
 		
