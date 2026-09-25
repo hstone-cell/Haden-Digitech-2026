@@ -1,45 +1,49 @@
 extends Area2D
 
-const weapons: Dictionary = {
+const METHOD_PICKUP_WEAPON: String = "pickup_weapon"
+
+const WEAPONS: Dictionary = {
 	"shotgun": {
-		"ammo": 16,
-		"damage": 5,
-		"fire_rate": 1.5,
-		"fire_distance": 400,
+		GameConstants.WEAPON_AMMO: 16,
+		GameConstants.WEAPON_DAMAGE: 5,
+		GameConstants.WEAPON_FIRE_RATE: 1.5,
+		GameConstants.WEAPON_FIRE_DISTANCE: 400,
 	},
 	"rifle": {
-		"ammo": 32,
-		"damage": 3,
-		"fire_rate": 0.7,
-		"fire_distance": 550,
+		GameConstants.WEAPON_AMMO: 32,
+		GameConstants.WEAPON_DAMAGE: 3,
+		GameConstants.WEAPON_FIRE_RATE: 0.7,
+		GameConstants.WEAPON_FIRE_DISTANCE: 550,
 	},
 	"sniper": {
-		"ammo": 3,
-		"damage": 5,
-		"fire_rate": 2.5,
-		"fire_distance": 700,
-	},	
+		GameConstants.WEAPON_AMMO: 3,
+		GameConstants.WEAPON_DAMAGE: 5,
+		GameConstants.WEAPON_FIRE_RATE: 2.5,
+		GameConstants.WEAPON_FIRE_DISTANCE: 700,
+	},
 }
 
-@export var weapon_id: String = "shotgun"
-
+var weapon_id: String = ""
 var _player_nearby: bool = false
-var _player_ref = null 
+var _player_ref = null
 var _active: bool = true
 
+# Picks a random weapon for the weapon crate to grant.
 func _ready() -> void:
-	weapon_id = weapons.keys()[randi() % weapons.size()]
+	weapon_id = WEAPONS.keys()[randi() % WEAPONS.size()]
 
-
-
-
+# Grants the weapon when the player is nearby, active, and presses interact.
 func _process(_delta: float) -> void:
-	if _player_nearby and _active and Input.is_action_just_pressed("ui_interact"):
+	if (
+			_player_nearby
+			and _active
+			and Input.is_action_just_pressed(GameConstants.ACTION_INTERACT)
+	):
 		_grant_weapon()
 
 
 func _on_body_entered(body: Node) -> void:
-	if body.has_method("pickup_weapon"):
+	if body.has_method(METHOD_PICKUP_WEAPON):
 		_player_nearby = true
 		_player_ref = body
 
@@ -50,12 +54,12 @@ func _on_body_exited(body: Node) -> void:
 		_player_ref = null
 
 
-
 func _grant_weapon() -> void:
-	if not _player_ref or not weapons.has(weapon_id):
+	# Skips if the player reference is gone or the weapon id is not valid.
+	if not is_instance_valid(_player_ref) or not WEAPONS.has(weapon_id):
 		return
-
-	_player_ref.pickup_weapon(weapon_id, weapons[weapon_id].duplicate())
-
+	# Gives the player a copy of this weapon's stats.
+	_player_ref.pickup_weapon(weapon_id, WEAPONS[weapon_id].duplicate())
+	# Removes this weapon crate now that it's been used.
 	_active = false
 	queue_free()

@@ -80,4 +80,4 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_16hvj")
 
 [connection signal="pressed" from="play" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="help" to="." method="_on_help_button_pressed"]
-[connection signal="pressed" from="quit" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]

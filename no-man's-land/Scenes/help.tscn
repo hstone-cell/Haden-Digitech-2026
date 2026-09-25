@@ -28,7 +28,7 @@ offset_bottom = 647.0
 texture = ExtResource("1_dn2fg")
 expand_mode = 3
 
-[node name="Exit" type="Button" parent="." unique_id=762297005]
+[node name="exit" type="Button" parent="." unique_id=762297005]
 layout_mode = 0
 offset_left = 23.0
 offset_top = 17.0
@@ -38,4 +38,4 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_377fx")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_x1pvs")
 theme_override_styles/hover = SubResource("StyleBoxFlat_ga13k")
 
-[connection signal="pressed" from="Exit" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_main_menu_pressed"]

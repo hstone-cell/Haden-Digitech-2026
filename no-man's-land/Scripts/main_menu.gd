@@ -1,19 +1,9 @@
-extends Control
+extends MenuBase
 
-
-func _ready():
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-
-
+# Starts the level.
 func _on_play_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/level.tscn")
+	get_tree().change_scene_to_file(GameConstants.SCENE_LEVEL)
 
-
-
-
-func _on_quit_button_pressed() -> void:
-	get_tree().quit()
-
-
+# Opens the help screen.
 func _on_help_button_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/help.tscn")
+	get_tree().change_scene_to_file(GameConstants.SCENE_HELP)

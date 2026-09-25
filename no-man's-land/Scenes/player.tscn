@@ -284,12 +284,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7dp3o"]
 size = Vector2(40, 63)
 
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=609576188 node_paths=PackedStringArray("bullet_spawn", "bullet_timer", "Visuals", "legs", "torso", "stand", "crouch", "player_head", "shoot_animation_timer") groups=["player"]]
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=609576188 node_paths=PackedStringArray("bullet_spawn", "bullet_timer", "visuals", "legs", "torso", "stand", "crouch", "player_head", "shoot_animation_timer") groups=["player"]]
 script = ExtResource("1_v0iea")
 bullet_scene = ExtResource("2_cvnsp")
 bullet_spawn = NodePath("Node2D/Marker2D")
 bullet_timer = NodePath("Timer")
-Visuals = NodePath("Node2D")
+visuals = NodePath("Node2D")
 legs = NodePath("Node2D/legs")
 torso = NodePath("Node2D/torso")
 stand = NodePath("CollisionShape2D")
